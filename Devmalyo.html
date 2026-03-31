@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGPT Plus | Exclusive Promotion</title>
+    <style>
+        /* Professional Dark Mode UI */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #212121; /* Dark background */
+            color: #ececec;
+            font-family: 'SANS-SERIF', 'Segoe UI', Arial;
+        }
+
+        .card {
+            background-color: #2d2d2d;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            max-width: 450px;
+            width: 90%;
+            text-align: center;
+            border: 1px solid #444;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            background-color: #10a37f; /* ChatGPT Green */
+            border-radius: 8px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 0.95rem;
+            color: #b4b4b4;
+            margin-bottom: 25px;
+        }
+
+        /* Loading Bar */
+        .progress-box {
+            width: 100%;
+            background-color: #40414f;
+            border-radius: 20px;
+            height: 12px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .bar {
+            width: 0%;
+            height: 100%;
+            background-color: #10a37f;
+            border-radius: 20px;
+            transition: width 0.5s ease-in-out;
+        }
+
+        #status-text {
+            font-size: 0.85rem;
+            font-style: italic;
+            color: #10a37f;
+        }
+
+        /* The Hidden Reveal */
+        #final-action {
+            display: none;
+            margin-top: 20px;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .btn {
+            background-color: #10a37f;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background-color: #0e8c6d;
+        }
+
+        #prank-msg {
+            display: none;
+            font-size: 2rem;
+            color: #ff4b4b;
+            margin-top: 20px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <div class="logo">●</div>
+    <h2>ChatGPT Plus Activation</h2>
+    <p id="sub-header">Checking eligibility for your free lifetime subscription...</p>
+
+    <div class="progress-box">
+        <div class="bar" id="progress-bar"></div>
+    </div>
+    
+    <div id="status-text">Connecting to OpenAI servers...</div>
+
+    <div id="final-action">
+        <p style="color:#ffcc00; margin-bottom:10px;">⚠️ Action Required: Manual Verification Needed.</p>
+        <button class="btn" onclick="triggerPrank()">Claim Free Subscription</button>
+    </div>
+
+    <div id="prank-msg">🤡 কিরে! <br> April Fools! 🤡                     powered by Dev</div>
+</div>
+
+<script>
+    const bar = document.getElementById('progress-bar');
+    const status = document.getElementById('status-text');
+    const finalAction = document.getElementById('final-action');
+    const subHeader = document.getElementById('sub-header');
+
+    // Fake Loading Sequence
+    setTimeout(() => { bar.style.width = "30%"; status.innerText = "Verifying IP address..."; }, 1500);
+    setTimeout(() => { bar.style.width = "65%"; status.innerText = "Bypassing payment gateway..."; }, 3500);
+    setTimeout(() => { bar.style.width = "99%"; status.innerText = "Error: High traffic detected!"; }, 6000);
+    
+    // Show the "Claim" button when it hits 99%
+    setTimeout(() => {
+        status.innerText = "Status: Server Overload at 99%";
+        status.style.color = "#ff4b4b";
+        finalAction.style.display = "block";
+    }, 7500);
+
+    function triggerPrank() {
+        document.getElementById('prank-msg').style.display = 'block';
+        finalAction.style.display = 'none';
+        subHeader.innerText = "You've been pranked!";
+        status.innerText = "Subscription: 0% Real.";
+        
+        // Bonus: Vibration for mobile users
+        if (window.navigator.vibrate) {
+            window.navigator.vibrate([200, 100, 200]);
+        }
+    }
+</script>
+
+</body>
+</html>
